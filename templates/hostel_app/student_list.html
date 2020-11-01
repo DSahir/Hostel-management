@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "hostel_app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+    <br>
+    <br>
+
+    {% if student_list %}
+    <div class="list-type5">
+      <ol>
+          {% for student in student_list %}
+                <li><strong> MIS No :  </strong>{{student.user.username | upper}} <strong>    <br>Name  : </strong>{{student.student_name}}</li>
+          {% endfor %}
+      <ol>
+    </div>
+    {% endif %}
+{% endblock %}

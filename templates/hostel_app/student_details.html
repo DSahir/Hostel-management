@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends "hostel_app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+<style>
+    .card {
+    margin-top: 200px;
+    border-color: white;
+    border-width: 8px;
+    /* border-style: ridge; */
+    font-family: sans-serif;
+    font-size: x-large;
+    background-color: #5fcace;
+    }
+    .button1{
+      font-weight: 900;
+      background-color: gray;
+    }
+    .title{
+      font-size: 30px;
+    }
+</style> 
+  <div class="container">
+      <div class="card">
+        {% if student.gender == 'F' %}
+          <!-- <img src="{% static "hostel_app/female.jpg"%}" alt="Female" style="width:100%"> -->
+        {% else %}
+          <!-- <img src="{% static "hostel_app/male.jpg"%}" alt="Male" style="width:100%"> -->
+        {% endif %}
+        <h1>{{ student.student_name }}</h1>
+        <p class="title"><strong>{{student.user.username | upper }}</strong></p>
+        <p>{{student.room.hostel.hostel_name}} Hostel - {{ student.room.room_num}}</p>
+        <p>{{student.course.course_name}}</p>
+        <p>Faculty Advisor : {{student.course.faculty}}</p>
+        <button class="button1" onclick="location.href='{% url 'hostel_app:edit-profile'%}';">Edit Profile</button>
+      </div>
+    </div>
+{% endblock %}

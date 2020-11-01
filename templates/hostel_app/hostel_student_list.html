@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "hostel_app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+<!-- <h1 style="margin-top: 200px;">Alotted Rooms</h1> -->
+    {% if student_list %}
+      <div class="container-fluid">
+        {% for students in student_list %}
+        <div class="row text-center " style="margin-top: 90px;">
+          {% for student in students %}
+            <div class="col-lg-3">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h1> Room {{student.room.room_num}}</h1>
+                  </div>
+                  <div class="flip-card-back">
+                    <h1>{{student.user.username | upper}}</h1>
+                    <h2>{{student.student_name}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+{% endblock %}
