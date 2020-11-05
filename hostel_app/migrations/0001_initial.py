@@ -15,10 +15,10 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Course',
+            name='Branch',
             fields=[
-                ('course_code', models.CharField(max_length=50, primary_key=True, serialize=False)),
-                ('course_name', models.CharField(max_length=50)),
+                ('branch_code', models.CharField(max_length=50, primary_key=True, serialize=False)),
+                ('branch_name', models.CharField(max_length=50)),
                 ('faculty', models.CharField(max_length=50)),
             ],
         ),
@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('student_name', models.CharField(max_length=50)),
                 ('gender', models.CharField(choices=[('M', 'Male'), ('F', 'Female')], default=None, max_length=1)),
-                ('course', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='hostel_app.Course')),
+                ('branch', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='hostel_app.Branch')),
                 ('room', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='hostel_app.Room')),
                 ('user', models.OneToOneField(max_length=9, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],

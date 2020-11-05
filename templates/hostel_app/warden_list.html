@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% extends "hostel_app/base.html" %}
 {% load staticfiles %}
@@ -33,16 +32,18 @@
     </style>
     <br>
     <br>
-    <h3>List of available hostels in the premise (Girls/Boys hostel).</h3>
-    {% if hostel_list %}
+    <h3>List of Wardens and their info (contact to ask for help).</h3>
+    {% if warden %}
     <div class="list-type5">
       <ul type=none>
-          {% for hostel in hostel_list %}
-                
-                <li>Name : <strong>{{hostel.hostel_name| upper}} {% if hostel.gender  == 'M'  %} (For Boys){% else %}(For Girls){% endif %} </strong> <br>Warden : <strong>{{hostel.warden}}  </strong><br>Mess : <strong>{{hostel.mess}}  </strong></li>
+          {% for e in warden %}
+                <li>Name : <strong>{{e.name | upper}} </strong> <br>
+                    Slot (M-Morning/N-Night) : <strong>{{e.slot | upper}} </strong> <br>
+                    Email : <strong>{{e.email}} </strong> <br>
+                    Phone no. : <strong>{{e.phone_no}} </strong> <br>
+                </li>
           {% endfor %}
       <ul>
     </div>
-    
     {% endif %}
 {% endblock %}

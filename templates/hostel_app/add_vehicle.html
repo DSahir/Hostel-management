@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+{% extends "hostel_app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+<div>
+    <div class="main-w3layouts wrapper">
+      <div class="main-agileinfo">
+        <div class="agileits-top">
+          {% if vehicle_added %}
+            <script>
+            alert("Vehicle Registered!!");
+            </script>
+          {% endif %}
+          <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {% if veh_form.errors %}
+              <div class="alert alert-danger" role="alert">
+                <div class="error">
+                   <ul>
+                     {% for key,value in veh_form.errors.items %}
+                      {% for error in value %}
+                        <li>{{key}}</li>
+                        <li>{{ error }}</li>
+                      {% endfor %}
+                     {% endfor %}
+                   </ul>
+                </div>
+              </div>
+            {% endif %}
+            <!-- VehicleForm -->
+
+            <div class="form-group" >
+              <label> Vehicle Number</label>
+              <input required class="textarea-css" type="number" name="h_id" value="{{student.id}}">
+            </div>
+            <div class="form-group">
+              <label for="vehicleno">For Vehicle Number</label>
+              <input required class="textarea-css" type="text" name="vehicleno" placeholder="MH-00-0000" value="{% if veh_form.vehicleno.value %}{{veh_form.vehicleno.value}}{% else %}{% endif %}">
+            </div>
+
+            <div class="form-group">
+              <label for="licence"> Licence Number </label>
+              <input required class="textarea-css" type="text" name="licence" placeholder="XXXX-XXXX-XXXX" value="{% if veh_form.licence.value %}{{veh_form.licence.value}}{% else %}{% endif %}">
+            </div>
+            <!-- End VehicleForm -->
+
+            <input type="submit" class="reg_button" value="Register Vehicle">
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

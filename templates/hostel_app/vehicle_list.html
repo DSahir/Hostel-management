@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "hostel_app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+    <br>
+    <br>
+
+    {% if veh_list %}
+    <div class="list-type5">
+      <ol>
+          {% for e in veh_list %}
+                <li><strong>Vehicle Number :  </strong>{{e.vehicleno | upper}} <strong>    <br>Licence no. : </strong>{{e.licence}}</li>
+          {% endfor %}
+      <ol>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -10,8 +10,8 @@
     {% if student_list %}
     <div class="list-type5">
       <ol>
-          {% for student in student_list %}
-                <li><strong> MIS No :  </strong>{{student.user.username | upper}} <strong>    <br>Name  : </strong>{{student.student_name}}</li>
+          {% for e in student_list %}
+                <li><strong> MIS :  </strong>{{e.mis_id_id}} <strong>    <br>Name  : </strong>{{e.student_name}}<strong> <br>Room :  </strong>{{e.room}} <strong></strong></li>
           {% endfor %}
       <ol>
     </div>

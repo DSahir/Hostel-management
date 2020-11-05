@@ -30,10 +30,20 @@
           <!-- <img src="{% static "hostel_app/male.jpg"%}" alt="Male" style="width:100%"> -->
         {% endif %}
         <h1>{{ student.student_name }}</h1>
-        <p class="title"><strong>{{student.user.username | upper }}</strong></p>
+        <!-- <p class="title"><strong>{{student.user.username | upper }}</strong></p> -->
+        <p class="title"><strong>{{student.mis_id_id }}</strong></p>
         <p>{{student.room.hostel.hostel_name}} Hostel - {{ student.room.room_num}}</p>
-        <p>{{student.course.course_name}}</p>
-        <p>Faculty Advisor : {{student.course.faculty}}</p>
+        <!-- <p>{{student.branch.branch_name}}</p> -->
+        {% if student.own_vehicle == 'Y' %}
+          Owns a vehicle in the premises.
+        {% else %}
+          <!-- <img src="{% static "hostel_app/male.jpg"%}" alt="Male" style="width:100%"> -->
+        {% endif %}
+        <!-- {% if user_form.password.value %}{{user_form.password.value}}{% else %}{% endif %} -->
+        {% if clg.email %}<p>Email :{{clg.email}}</p>{% else %}{% endif %}
+        {% if clg.phone_no %}<p>Phone No. :{{clg.phone_no}}</p>{% else %}{% endif %}
+        {% if clg.branch %} <p>Branch :{{clg.branch}}</p>{% else %}{% endif %}
+        {% if clg.batchof %} <p>Batch of :{{clg.batchof}}</p>{% else %}{% endif %}
         <button class="button1" onclick="location.href='{% url 'hostel_app:edit-profile'%}';">Edit Profile</button>
       </div>
     </div>

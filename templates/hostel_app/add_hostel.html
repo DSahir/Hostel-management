@@ -7,7 +7,7 @@
   {% if not is_warden %}
     <h2 style="text-align:center;">Only warden can add new Hostel</h2>
   {% else %}
-    <h1>Add Hostel</h1>
+    <!-- <h1>Add Hostel</h1> -->
     <div class="main-w3layouts wrapper">
       <div class="main-agileinfo">
         <div class="agileits-top">
@@ -37,12 +37,21 @@
               <label for="id_hostel_name"> Hostel Name </label>
               <input required class="textarea-css" type="text" name="hostel_name" placeholder="Hostel Name" value="{% if hostel_form.hostel_name.value %}{{hostel_form.hostel_name.value}}{% else %}{% endif %}">
             </div>
-
+<!-- 
             <div class="form-group">
               <label for="id_warden"> Warden </label>
               <input required class="textarea-css" type="text" name="warden" placeholder="Warden" value="{% if hostel_form.warden.value %}{{hostel_form.warden.value}}{% else %}{% endif %}">
+            </div> -->
+            <div class="form-group">
+              <label for="id_warden"> Warden </label>
+              <select required id="id_warden" name="warden" placeholder="Warden" class="select-css">
+                {% for value,key in hostel_form.fields.warden.choices %}
+                    <option value="{{ value }}"{% if hostel_form.warden.value == value %} selected {% endif %}>
+                        {{ key }}
+                    </option>
+                {% endfor %}
+              </select>
             </div>
-
             <div class="form-group">
               <!-- Name attribute should match form attribute -->
               <label for="id_gender"> Gender </label>

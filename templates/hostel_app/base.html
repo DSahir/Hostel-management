@@ -724,18 +724,26 @@
             {% if user.get_username == "chief_warden" %}
             <li><a class="navbar-link" href="{% url 'index' %}">Home</a></li>
             <li><a class="navbar-link" href="{% url 'hostel_app:warden-add-room'%}">Add Room</a></li>
+            <li><a class="navbar-link" href="{% url 'hostel_app:warden-add-mess'%}">Add Mess</a></li>
             <li><a class="navbar-link" href="{% url 'hostel_app:warden-add-hostel'%}">Add Hostel</a></li>
             <li><a href="{% url 'hostel_app:student-list' %}">Student List</a></li>
+            <li><a href="{% url 'hostel_app:vehicle_list' %}">Vehicle List</a></li>
+            
             {% else %}
             <li><a class="navbar-link" href="{% url 'hostel_app:student-details' %}">Profile</a></li>
             <li><a href="{% url 'hostel_app:hostel-details' %}">Hostel Details</a></li>
+            <li><a href="{% url 'hostel_app:add-vehicle' %}">Register Vehicle</a></li>
             <li><a href="{% url 'hostel_app:hostel-student-list' %}">Hostel Student List</a></li>
+            <li><a href="{% url 'hostel_app:warden_list' %}">Wardens</a></li>
+            
             {% endif %}
           <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
           {% else %}
           <li><a class="navbar-link" href="{% url 'index' %}">Home</a></li>
           <li><a class="navbar-link" href="{% url 'hostel_app:reg' %}">Register</a></li>
-          <li><a href="{% url 'hostel_app:student-list' %}">Student List</a></li>
+          <li><a href="{% url 'hostel_app:student-list' %}">Students</a></li>
+          <li><a href="{% url 'hostel_app:hostel-list' %}">Hostels</a></li>
+          <li><a href="{% url 'hostel_app:mess-display' %}">Mess</a></li>
           <li><a class="navbar-link" href="{% url 'hostel_app:user_login' %}">Login</a></li>
           <li><a class="navbar-link" href="{% url 'hostel_app:user_login' %}">Chief Warden Login</a></li>
           {% endif %}

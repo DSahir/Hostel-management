@@ -48,7 +48,10 @@
                     <label for="id_student_name"> Name :</label>
                     <input required class="textarea-css" type="text" name="student_name" value="{{student_form.student_name.value}}">
                   </div>
-
+                  <div class="form-group" style="display: none;">
+                    <label for="mis"> Name :</label>
+                    <input required class="textarea-css" type="text" name="mis_id" value="{{student_form.mis_id.value}}">
+                  </div>
                   <div class="form-group">
                     <!-- Name attribute should match form attribute -->
                     <label for="id_gender">Gender:</label>
@@ -60,17 +63,7 @@
                       {% endfor %}
                     </select>
                   </div>
-
-                  <div class="form-group">
-                    <label for="id_course">Department:</label>
-                    <select id="id_course" name="course" class="select-css">
-                      {% for value,key in student_form.fields.course.choices %}
-                          <option value="{{ value }}"{% if student_form.course.value == value %} selected {% endif %}>
-                              {{ key }}
-                          </option>
-                      {% endfor %}
-                    </select>
-                  </div>
+   
 
                   <div class="form-group">
                     <label for="id_room">Room:</label>
@@ -84,8 +77,20 @@
                       {% endfor %}
                     </select>
                   </div>
+                  <div class="form-group">
+                    <label for="veh"> Do you own a vehicle at hostel? </label>
+                    <select required id="veh" name="own_vehicle" placeholder="Yes/No" class="select-css">
+                      {% for value,key in student_form.fields.own_vehicle.choices %}
+                          <option value="{{ value }}" {% if value == student_form.own_vehicle.value %} selected {% endif %}>
+                            
+                            {{ key }}
+                          </option>
+                      {% endfor %}
+                    </select>
+                  </div> 
 
-                  <input type="submit" class="reg_button" value="Confirm">
+
+                  <input type="submit" class="reg_button" value="Confirm"> 
                 </form>
               </div>
             </div>

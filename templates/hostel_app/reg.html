@@ -18,13 +18,13 @@
       padding: 0 40px;
       border-color: white;
       border-width: 10px;
-      border-style: double;
+      border-style: solid;
       border-collapse: separate;
     }
   </style>
   {% if registered %}
     <div class="container">
-      <div class="jumbotron">
+      <div class="jumbotron" style="margin-top: 200px;">
         <h2>Room has been alotted</h2>
         <h2>Login to view your profile</h2>
       </div>
@@ -64,11 +64,17 @@
                       </div>
                     </div>
                   {% endif %}
+                 
+                  <div class="form-group">
+                    <label for="id_mis"> MIS </label>
+                    <input required class="textarea-css" type="text" name="mis_id" placeholder="MIS" value="{% if clg_form.mis.value %}{{clg_form.mis.value}}{% else %}{% endif %}">
+                    
+                  
                   <!-- UserForm -->
                   <div class="form-group">
                     <label for="id_username"> Username (Your hostel ID) </label>
                     <input required id="id_username" class="textarea-css" placeholder="Username" type="text" name="username" value="{% if user_form.username.value %}{{user_form.username.value}}{% else %}{% endif %}" autocomplete="false">
-                    <!-- <span class="helptext">Same as your Roll No.</span></p> -->
+                  
                   </div>
 
                   <div class="form-group">
@@ -79,29 +85,30 @@
                   <!-- End UserForm -->
 
                   <!-- StudentForm -->
+              
+                  <!-- <div class="form-group">
+                    <label for="email"> Email</label>
+                    <input required class="textarea-css" type="email" name="email" placeholder="Email" value="{% if clg_form.email.value %}{{clg_form.email.value}}{% else %}{% endif %}">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone"> Phone number</label>
+                    <input required class="textarea-css" type="number" name="phone_no" placeholder="Phone No." value="{% if clg_form.phone_no.value %}{{clg_form.phone_no.value}}{% else %}{% endif %}">
+                  </div> 
+                  <div class="form-group">
+                    <label for="batch"> Batch of </label>
+                    <input required class="textarea-css" type="number" name="batchof" placeholder="Passout Year" value="{% if clg_form.batchof.value %}{{clg_form.batchof.value}}{% else %}{% endif %}">
+                  </div> -->
+                    <!-- Name attribute should match form attribute -->
+                  
                   <div class="form-group">
                     <label for="id_student_name"> Name </label>
                     <input required class="textarea-css" type="text" name="student_name" placeholder="Name" value="{% if student_form.student_name.value %}{{student_form.student_name.value}}{% else %}{% endif %}">
                   </div>
-
                   <div class="form-group">
-                    <!-- Name attribute should match form attribute -->
                     <label for="id_gender"> Gender </label>
                     <select required id="id_gender" name="gender" placeholder="Gender" class="select-css">
                       {% for value,key in student_form.fields.gender.choices %}
                           <option value="{{ value }}" {% if student_form.gender.value == value %} selected {% endif %}>
-                              {{ key }}
-                          </option>
-                      {% endfor %}
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="id_course"> Department </label>
-                    <select required id="id_course" name="course" placeholder="Course" class="select-css" value="{{student_form.course.value}}">
-                      {% for value,key in student_form.fields.course.choices %}
-                          <!-- <h1>{{student_form.course}}</h1> -->
-                          <option value="{{ value }}" {% if student_form.course.value == value %} selected {% endif %}>
                               {{ key }}
                           </option>
                       {% endfor %}
@@ -118,6 +125,16 @@
                       {% endfor %}
                     </select>
                   </div>
+                  <div class="form-group">
+                    <label for="veh"> Do you own a vehicle at hostel? </label>
+                    <select required id="veh" name="own_vehicle" placeholder="Yes/No" class="select-css">
+                      {% for value,key in student_form.fields.own_vehicle.choices %}
+                          <option value="{{ value }}" {% if student_form.own_vehicle.choices.value == value %} selected {% endif %}>
+                              {{ key }}
+                          </option>
+                      {% endfor %}
+                    </select>
+                  </div>
                   <!-- End StudentForm -->
 
                   <input type="submit" class="reg_button" value="Register">
@@ -126,9 +143,9 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="float: right; position: fixed; top: 40px; right: 0;">
           <div class="a-full">
-            <div class="a-central-div">
+            <div class="a-central-div" style="float: left;">
               {% if boys_hostel %}
               <h2>Boys Hostel</h2>
                   {% for hostel in boys_hostel %}
