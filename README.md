@@ -20,10 +20,3 @@ python3 manage.py runserver
   - Password : warden@hostels
 
 ```
-## ER Diagram
-
-- ![ER Diagram](Diagrams/ER_Diagram.jpg)
-
-## Relation Schema
-
-- ![Relation Schema](Diagrams/Relation_Schema.png)
