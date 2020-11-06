@@ -7,11 +7,6 @@ sudo apt install python3-pip
 sudo apt install mysql-server
 sudo apt install libmysqlclient-dev
 pip3 install -r req.txt
-- Setup mysql and configure a new user before continuing
-- nano ~/.my.cnf ------- then add the following to the file
-  - [client]
-  - user = sql_username
-  - password = your_password
 - Run mysql: mysql
   - create database hostels
 python3 manage.py makemigrations
