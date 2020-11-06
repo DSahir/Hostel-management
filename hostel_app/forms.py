@@ -31,7 +31,7 @@ class VehicleForm(forms.ModelForm):
 class ClgForm(forms.ModelForm):
     class Meta():
         model = CollegeInfo
-        fields = ('mis' ,'email','phone_no','branch','batchof');
+        fields = ('mis','email','phone_no','branch','batchof');
 
 class RoomForm(forms.ModelForm):
     class Meta():

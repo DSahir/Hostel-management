@@ -17,10 +17,11 @@ class Student(models.Model):
     gender = models.CharField(choices=gender_choice, max_length=1, default=None , null=False)
     
     def clean(self):
-        if self.gender != self.room.hostel.gender:
-            raise ValidationError("Sorry. We don't offer mixed hostels.")
-        if self.room.room_alloted==True:
-            raise ValidationError('Room is already alotted.')
+        if (self.gender and self.room != None):
+            if self.gender != self.room.hostel.gender:
+                raise ValidationError("Sorry. We don't offer mixed hostels.")
+            if self.room.room_alloted==True:
+                raise ValidationError('Room is already alotted.')
         # if Student.objects.filter(user__username__iexact=user.username).exists() :
         #     raise ValidationError("User already exists")
         # elif not re.match(r"[mbp]\d{6}[a-z][a-z]",str(user.username),re.I):

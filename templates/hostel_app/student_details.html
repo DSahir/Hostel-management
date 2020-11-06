@@ -25,9 +25,9 @@
   <div class="container">
       <div class="card">
         {% if student.gender == 'F' %}
-          <!-- <img src="{% static "hostel_app/female.jpg"%}" alt="Female" style="width:100%"> -->
+          <img src="{% static "hostel_app/female.png" %}" alt="Female" style="margin-top: 35px;">
         {% else %}
-          <!-- <img src="{% static "hostel_app/male.jpg"%}" alt="Male" style="width:100%"> -->
+          <img src="{% static "hostel_app/male.png" %}" alt="Male" style="margin-top: 35px;">
         {% endif %}
         <h1>{{ student.student_name }}</h1>
         <!-- <p class="title"><strong>{{student.user.username | upper }}</strong></p> -->
